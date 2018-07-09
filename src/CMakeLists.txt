@@ -1,6 +1,6 @@
 
 # Specify .cpp files
-set(TARGET_NAME CMake_C++)
+set(TARGET_NAME cmake_cpp)
 set(SRC hello.cpp)
 
 # Build an executable from main.cpp and all specified source files
@@ -11,8 +11,12 @@ target_link_libraries(${TARGET_NAME} ${LIBRARIES})
 # This is required for using googletest
 add_library(${TARGET_NAME}-lib ${SRC})
 target_link_libraries(${TARGET_NAME}-lib ${LIBRARIES})
-set_target_properties(${TARGET_NAME}-lib PROPERTIES OUTPUT_NAME CMake_C++)
+set_target_properties(${TARGET_NAME}-lib PROPERTIES OUTPUT_NAME cmake_cpp)
 
 # vim:ft=cmake
+
+#=========================================================================
+# Run executable (make run)
+add_custom_target(run COMMAND "cmake_cpp")
 
 
